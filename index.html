@@ -1,100 +1,161 @@
 <!DOCTYPE html>
-<html>
-    <head> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title> Roberto Arteaga's Site</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body sticky-top" data-bs-theme="dark" style="border: groove 2px silver; border-radius: 20px; box-shadow: 0 0 5px 5px silver;">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">K'Five</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="music.html">Music</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="stories.html">Stories</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Music Styles
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="trance.html" style="border: ridge 2px white; border-radius: 20px; box-shadow: 0 0 2.5px 2.5px rgb(214, 214, 214);">Trance</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="latin.html" style="border: ridge 2px white; border-radius: 20px; box-shadow: 0 0 2.5px 2.5px rgb(214, 214, 214);">Latin</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="other.html" style="border: ridge 2px white; border-radius: 20px; box-shadow: 0 0 2.5px 2.5px rgb(214, 214, 214);">Other</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Game Styles
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="platformers.html" style="border: ridge 2px white; border-radius: 20px; box-shadow: 0 0 2.5px 2.5px rgb(214, 214, 214);">Platformers</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="horror.html" style="border: ridge 2px white; border-radius: 20px; box-shadow: 0 0 2.5px 2.5px rgb(214, 214, 214);">Horror</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="otherGames.html" style="border: ridge 2px white; border-radius: 20px; box-shadow: 0 0 2.5px 2.5px rgb(214, 214, 214);">Other</a></li>
-                  </ul>
-                </li>
-                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    My Stories
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="loveStories.html" style="border: ridge 2px white; border-radius: 20px; box-shadow: 0 0 2.5px 2.5px rgb(214, 214, 214);">Love Stories</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="horrorStories.html" style="border: ridge 2px white; border-radius: 20px; box-shadow: 0 0 2.5px 2.5px rgb(214, 214, 214);">Horror</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="otherStories.html" style="border: ridge 2px white; border-radius: 20px; box-shadow: 0 0 2.5px 2.5px rgb(214, 214, 214);">Other</a></li>
-                  </ul>
-                </li> 
-                <li class="nav-item">
-                  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                </li>
-              </ul>      
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roberto Arteaga's Site</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 0 5px 2px silver;
+    }
+    .dropdown-item {
+      border: ridge 2px white;
+      border-radius: 20px;
+      box-shadow: 0 0 2.5px 2.5px rgb(214, 214, 214);
+    }
+    footer {
+      border-top: 2px groove silver;
+      box-shadow: 0 -2px 5px silver;
+      background-color: #f8f9fa;
+      padding: 20px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body sticky-top" data-bs-theme="dark" style="border: groove 2px silver; border-radius: 20px; box-shadow: 0 0 5px 5px silver;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">K'Five</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="music.html">Music</a></li>
+          <li class="nav-item"><a class="nav-link" href="stories.html">Stories</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Music Styles</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="trance.html">Trance</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="latin.html">Latin</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="other.html">Other</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Game Styles</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="platformers.html">Platformers</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="horror.html">Horror</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="otherGames.html">Other</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">My Stories</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="loveStories.html">Love Stories</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="horrorStories.html">Horror</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="otherStories.html">Other</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <div class="text-center mt-3">
+    <marquee><h1>Bienvenidos a mi Página</h1></marquee>
+  </div>
+
+  <!-- CUERPO PRINCIPAL -->
+  <div class="container mt-4">
+    <div class="row">
+
+      <!-- ASIDE IZQUIERDO -->
+      <aside class="col-md-3">
+        <div class="bg-dark text-white p-3" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <marquee behavior="scroll" direction="left"><h4>Roberto Carlos López Arteaga</h4></marquee>
+          <h5>Perfil</h5>
+          <ul>
+            <li>Ingeniero en desarrollo de software</li>
+            <li>DJ/Productor</li>
+            <li>Unity GameDev</li>
+            <li>Escritor por hobbie</li>
+            <li>Mentor en Algorithmics</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- CONTENIDO CENTRAL -->
+      <main class="col-md-6 text-center">
+        <!-- SOBRE MÍ -->
+        <section class="mb-4">
+          <h3>Sobre mí</h3>
+          <img src="https://via.placeholder.com/150" alt="Foto de Roberto Arteaga" class="img-fluid rounded-circle mb-3">
+          <p>¡Hola! Soy un apasionado de la tecnología, la música y la creatividad. Me encanta crear experiencias, ya sea en forma de juegos, pistas de música o historias. Este sitio es una recopilación de mis intereses y proyectos.</p>
+        </section>
+
+        <!-- PROYECTOS DESTACADOS -->
+        <section class="mb-4">
+          <h3>Proyectos Destacados</h3>
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Juego de plataformas con Unity</h5>
+              <p class="card-text">Desarrollé un juego tipo retro pixel-art con mecánicas de física 2D y niveles desafiantes.</p>
             </div>
           </div>
-        </nav>
-        <center>
-          <marquee>
-            <h1>¡Bienvenidos!</h1>
-          </marquee>
-          <aside style="float: left; border: 12px; border-radius: 12px; box-shadow: 0 0 5px 5px silver">
-              <marquee><h2> Roberto Carlos López Arteaga</h2></marquee>
-              <h3> 
-                  <li> Ingeniero en desarrollo de software</li>
-                  <li> Dj / Productor</li>
-                  <li> Unity GameDev</li>
-                  <li> Escritor por Hobbie</li>
-                  <li> Mentor en Algorithmics</li>
-              </h3>              
-          </aside>
-          <aside style="float: right; border: 12px; border-radius: 12px; box-shadow: 0 0 5px 5px silver">
-              <h2> Tecnologías y Skills</h2>
-              <h3> 
-                  <li> Unity 2D/3D</li>
-                  <li> Fl-Studio/Sony ACID PRO 7</li>
-                  <li> Visual Studio Code</li>
-                  <li> Python</li>
-                  <li> Java</li>
-                  <li> C </li>
-                  <li> C# </li>
-              </h3>              
-          </aside>
-          <p>y nada más para no perder la costumbre: </p>
-          <p>Hello <span style="color: blue;">World</span></p>
-        </center>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>        
-    </body>
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Mini-álbum de música Trance</h5>
+              <p class="card-text">Producción de 5 tracks originales inspirados en el sonido clásico de los 2000s con FL Studio.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FRASE INSPIRADORA -->
+        <section class="mb-4">
+          <h4><i class="fas fa-quote-left"></i> "La creatividad es inteligencia divirtiéndose." – Albert Einstein</h4>
+        </section>
+      </main>      
+      <!-- ASIDE DERECHO -->
+      <aside class="col-md-3">
+        <div class="bg-light p-3" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <marquee behavior="scroll" direction="right"><h4>Tecnologías y Skills</h4></marquee>
+          <ul class="list-unstyled">
+            <li><i class="fab fa-unity"></i> Unity 2D/3D</li>
+            <li><i class="fas fa-music"></i> FL Studio / Acid Pro</li>
+            <li><i class="fas fa-code"></i> Visual Studio Code</li>
+            <li><i class="fab fa-python"></i> Python</li>
+            <li><i class="fab fa-java"></i> Java</li>
+            <li><i class="fas fa-c"></i> C / C#</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+<hr>
+  <!-- FOOTER -->
+  <footer class="mt-5 fixed-bottom bg-dark text-white" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;height: 8%;">
+    <p>© 2025 Roberto Arteaga. Todos los derechos reservados.</p>
+    <p>Escríbeme a: <a href="mailto:roberto.arteaga25@hotmail.com">roberto.arteaga25@hotmail.com</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
