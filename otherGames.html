@@ -3,13 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Games - Roberto Arteaga's Site</title>
+  <title>Other Games - Roberto Arteaga's Site</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     .card {
       border-radius: 12px;
       box-shadow: 0 0 5px 2px silver;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
     }
     .dropdown-item {
       border: ridge 2px white;
@@ -23,11 +28,125 @@
       padding: 20px 0;
       text-align: center;
     }
+    .game-banner {
+      height: 180px;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+    }
+    .game-banner i {
+      font-size: 4rem;
+      color: white;
+    }
+    .game-category {
+      font-size: 0.85rem;
+      color: #6c757d;
+    }
+    .game-description {
+      height: 80px;
+      overflow: hidden;
+    }
+    .section-title {
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      border-radius: 3px;
+    }
+    .platform-tag {
+      display: inline-block;
+      padding: 3px 8px;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-right: 5px;
+      border: 1px solid #dee2e6;
+    }
+    .category-nav {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .category-link {
+      border-radius: 20px;
+      padding: 5px 15px;
+      transition: all 0.3s;
+      text-decoration: none;
+      border: 1px solid #6a11cb;
+      color: #6a11cb;
+    }
+    .category-link:hover, .category-link.active {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+    }
+    @media (max-width: 768px) {
+      .game-banner {
+        height: 150px;
+      }
+      .game-banner i {
+        font-size: 3rem;
+      }
+    }
+    .game-section {
+      margin-bottom: 40px;
+    }
+    .category-title {
+      border-left: 5px solid #6a11cb;
+      padding-left: 15px;
+      margin-bottom: 20px;
+      color: #343a40;
+    }
+    .strength-item {
+      padding: 15px;
+      border-radius: 10px;
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      margin-bottom: 15px;
+      border-left: 4px solid #6a11cb;
+    }
+    .dev-process {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    .novela-section {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      border-radius: 12px;
+      padding: 25px;
+      margin: 30px 0;
+    }
+    .experimental-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ffc107;
+      color: #000;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 0.7rem;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAVBAR (sin cambios) -->
   <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body sticky-top" data-bs-theme="dark" style="border: groove 2px silver; border-radius: 20px; box-shadow: 0 0 5px 5px silver;">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">K'Five</a>
@@ -80,7 +199,7 @@
 
   <!-- HEADER -->
   <div class="text-center mt-3">
-    <marquee><h1>Bienvenidos a mi Página</h1></marquee>
+    <marquee><h1>Otros Estilos de Juegos</h1></marquee>
   </div>
 
   <!-- CUERPO PRINCIPAL -->
@@ -100,16 +219,185 @@
             <li>Mentor en Algorithmics</li>
           </ul>
         </div>
+        
+        <!-- Navegación por categoría -->
+        <div class="mt-4 p-3 bg-light" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <h5>Navegar por Categorías</h5>
+          <div class="d-grid gap-2">
+            <a href="#experimental" class="category-link active">Experimentales</a>
+            <a href="#minijuegos" class="category-link">Minijuegos</a>
+            <a href="#conceptos" class="category-link">Conceptos</a>
+          </div>
+        </div>
+        
+        <!-- Fortalezas -->
+        <div class="mt-4 p-3 bg-light" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <h5>Mis Fortalezas</h5>
+          <div class="strength-item">
+            <h6><i class="fas fa-code me-2"></i>Programación</h6>
+            <small>Lógica de juego, mecánicas y sistemas</small>
+          </div>
+          <div class="strength-item">
+            <h6><i class="fas fa-music me-2"></i>Música y Sonido</h6>
+            <small>Creación de bandas sonoras y efectos</small>
+          </div>
+          <div class="strength-item">
+            <h6><i class="fas fa-book me-2"></i>Narrativa</h6>
+            <small>Desarrollo de historias y personajes</small>
+          </div>
+        </div>
       </aside>
 
       <!-- CONTENIDO CENTRAL -->
-      <main class="col-md-6 text-center">
-        <!-- SOBRE MÍ -->
-        <section class="mb-4">
-          <h3>Otros Estilos de Juegos</h3>          
-          <p>No solo hago juegos de plataformas, a veces me gusta experimentar con otros estilos.</p>
-        </section>      
-      </main>      
+      <main class="col-md-6">
+        <section class="mb-5">
+          <h2 class="section-title">Mis Otros Juegos</h2>
+          <p class="text-center">Explora mis experimentos y proyectos en diferentes géneros más allá de plataformas y terror.</p>
+          
+          <!-- Navegación por categoría (versión móvil) -->
+          <div class="category-nav d-md-none">
+            <a href="#experimental" class="category-link active">Experimentales</a>
+            <a href="#minijuegos" class="category-link">Minijuegos</a>
+            <a href="#conceptos" class="category-link">Conceptos</a>
+          </div>
+          
+          <!-- Juegos Experimentales -->
+          <div class="game-section" id="experimental">
+            <h3 class="category-title">Juegos Experimentales</h3>
+            <div class="row">
+              <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                  <div class="experimental-badge">Experimental</div>
+                  <div class="game-banner">
+                    <img src="Images/Cover-Art.png" class="img responsive-image"></i>
+                  </div>
+                  <div class="card-body">
+                    <span class="game-category">Astrix-Like</span>
+                    <h5 class="card-title">Dogtrix</h5>
+                    <p class="card-text game-description">¿Te habías imagiando a un perro espacial evitando asteroídes y recolectando monedas? Yo tampoco, pero suena divertido ¿no? ¿Por qué no lo pruebas?.</p>
+                    <div class="mb-2">
+                      <span class="platform-tag">Android</span>
+                    </div>
+                    <a href="https://k-five5.itch.io/dogtrix" class="btn btn-primary btn-sm">Ver detalles</a>
+                  </div>
+                </div>
+              </div>                            
+          </div>
+          
+          <!-- Minijuegos -->
+          <div class="game-section" id="minijuegos">
+            <h3 class="category-title">Minijuegos</h3>
+            <div class="row">
+              <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                  <div class="game-banner">
+                    <i class="fas fa-chess"></i>
+                  </div>
+                  <div class="card-body">
+                    <span class="game-category">Estrategia</span>
+                    <h5 class="card-title">Quantum Checkers</h5>
+                    <p class="card-text game-description">Una variante de damas con reglas modificadas que introducen elementos de incertidumbre.</p>
+                    <div class="mb-2">
+                      <span class="platform-tag">Mobile</span>
+                      <span class="platform-tag">Web</span>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm">Ver detalles</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                  <div class="game-banner">
+                    <i class="fas fa-puzzle-piece"></i>
+                  </div>
+                  <div class="card-body">
+                    <span class="game-category">Lógica</span>
+                    <h5 class="card-title">Pattern Matrix</h5>
+                    <p class="card-text game-description">Un desafío mental donde debes descubrir patrones en matrices cambiantes.</p>
+                    <div class="mb-2">
+                      <span class="platform-tag">Mobile</span>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm">Ver detalles</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Conceptos -->
+          <div class="game-section" id="conceptos">
+            <h3 class="category-title">Conceptos en Desarrollo</h3>
+            <div class="novela-section">
+              <h4><i class="fas fa-book me-2"></i>Inspirado en "El Héroe de las Dos Espadas"</h4>
+              <p>Basado en mi novela en progreso, estoy explorando conceptos de juego donde Azadd, el protagonista, enfrenta dilemas morales y combate estratégico.</p>
+              <div class="mt-3">
+                <h5>Ideas conceptuales:</h5>
+                <ul>
+                  <li>Sistema de toma de decisiones con consecuencias a largo plazo</li>
+                  <li>Combate táctico basado en posicionamiento y elección de armas</li>
+                  <li>Narrativa no lineal que se adapta a las decisiones del jugador</li>
+                  <li>Banda sonora original que refleja el tono épico de la historia</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="row mt-4">
+              <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                  <div class="game-banner">
+                    <i class="fas fa-balance-scale"></i>
+                  </div>
+                  <div class="card-body">
+                    <span class="game-category">Narrativa</span>
+                    <h5 class="card-title">Decisiones Cruzadas</h5>
+                    <p class="card-text game-description">Prototipo de un sistema de elecciones morales con consecuencias en la historia.</p>
+                    <div class="mb-2">
+                      <span class="platform-tag">Concepto</span>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm">Ver detalles</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Sección de proceso de desarrollo -->
+        <section class="mb-5">
+          <h2 class="section-title">Mi Enfoque de Desarrollo</h2>
+          <div class="dev-process">
+            <div class="row text-center">
+              <div class="col-md-4 mb-3">
+                <div class="p-3 bg-white rounded">
+                  <i class="fas fa-flask fa-2x mb-2 text-info"></i>
+                  <h5>Experimentación</h5>
+                  <p>Pruebo mecánicas innovadoras fuera de los géneros principales</p>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="p-3 bg-white rounded">
+                  <i class="fas fa-code-branch fa-2x mb-2 text-success"></i>
+                  <h5>Iteración</h5>
+                  <p>Refino las ideas que muestran potencial interesante</p>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="p-3 bg-white rounded">
+                  <i class="fas fa-project-diagram fa-2x mb-2 text-primary"></i>
+                  <h5>Integración</h5>
+                  <p>Incorporo lo aprendido en mis proyectos principales</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 p-3 bg-dark text-white rounded">
+              <h5><i class="fas fa-lightbulb me-2"></i>Filosofía de diseño</h5>
+              <p>Estos proyectos me permiten explorar nuevas ideas sin las restricciones de los géneros establecidos, lo que a menudo resulta en mecánicas innovadoras que luego influyen en mis proyectos principales.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+      
       <!-- ASIDE DERECHO -->
       <aside class="col-md-3">
         <div class="bg-light p-3" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
@@ -123,11 +411,47 @@
             <li><i class="fas fa-c"></i> C / C#</li>
           </ul>
         </div>
+        
+        <!-- Proyectos destacados -->
+        <div class="mt-4 p-3 bg-dark text-white" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <h5>Proyectos Experimentales</h5>
+          <div class="mt-3">
+            <div class="d-flex align-items-center mb-3">
+              <i class="fas fa-flask text-info me-2"></i>
+              <div>
+                <h6 class="mb-0">Gravity Shift</h6>
+                <small>Mecánicas de física innovadoras</small>
+              </div>
+            </div>
+            <div class="d-flex align-items-center mb-3">
+              <i class="fas fa-wave-square text-success me-2"></i>
+              <div>
+                <h6 class="mb-0">SoundScape</h6>
+                <small>Audio interactivo generativo</small>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="fas fa-book text-warning me-2"></i>
+              <div>
+                <h6 class="mb-0">Concepto Azadd</h6>
+                <small>Basado en mi novela</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Colaboración -->
+        <div class="mt-4 p-3 bg-light" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <h5>¿Interesado en Experimentar?</h5>
+          <p>Si tienes ideas interesantes para proyectos experimentales, me encantaría conversar contigo.</p>
+          <a href="mailto:roberto.arteaga25@hotmail.com" class="btn btn-outline-primary btn-sm">Contactar</a>
+        </div>
       </aside>
     </div>
   </div>
 <hr>
-  <!-- FOOTER -->
+
+  <!-- FOOTER (sin cambios) -->
   <br>
   <footer class="mt-5 fixed-bottom bg-dark text-white" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;height: 8%;">
     <p>© 2025 Roberto Arteaga. Todos los derechos reservados.</p>
