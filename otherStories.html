@@ -10,6 +10,11 @@
     .card {
       border-radius: 12px;
       box-shadow: 0 0 5px 2px silver;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
     }
     .dropdown-item {
       border: ridge 2px white;
@@ -22,6 +27,104 @@
       background-color: #f8f9fa;
       padding: 20px 0;
       text-align: center;
+    }
+    .story-banner {
+      height: 160px;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+    }
+    .story-banner i {
+      font-size: 3.5rem;
+      color: white;
+    }
+    .story-category {
+      font-size: 0.85rem;
+      color: #6c757d;
+    }
+    .story-description {
+      height: 90px;
+      overflow: hidden;
+    }
+    .section-title {
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      border-radius: 3px;
+    }
+    .genre-tag {
+      display: inline-block;
+      padding: 3px 8px;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-right: 5px;
+      border: 1px solid #dee2e6;
+    }
+    @media (max-width: 768px) {
+      .story-banner {
+        height: 140px;
+      }
+      .story-banner i {
+        font-size: 3rem;
+      }
+    }
+    .story-section {
+      margin-bottom: 40px;
+    }
+    .category-title {
+      border-left: 5px solid #6a11cb;
+      padding-left: 15px;
+      margin-bottom: 20px;
+      color: #343a40;
+    }
+    .strength-item {
+      padding: 15px;
+      border-radius: 10px;
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      margin-bottom: 15px;
+      border-left: 4px solid #6a11cb;
+    }
+    .quote-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 12px;
+      padding: 25px;
+      margin: 30px 0;
+      font-style: italic;
+      text-align: center;
+      border-left: 5px solid #6a11cb;
+    }
+    .writing-stats {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .stat-item {
+      padding: 15px;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #6a11cb;
+    }
+    .stat-label {
+      font-size: 0.9rem;
+      color: #6c757d;
     }
   </style>
 </head>
@@ -36,7 +139,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="music.html">Music</a></li>
           <li class="nav-item"><a class="nav-link" href="stories.html">Stories</a></li>
 
@@ -69,7 +172,7 @@
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="horrorStories.html">Horror</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="otherStories.html">Other</a></li>
+              <li><a class="dropdown-item active" href="otherStories.html">Other</a></li>
             </ul>
           </li>
 
@@ -91,23 +194,107 @@
       <aside class="col-md-3">
         <div class="bg-dark text-white p-3" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
           <marquee behavior="scroll" direction="left"><h4>Roberto Carlos López Arteaga</h4></marquee>
-          <h5>Perfil</h5>
+          <h5>Escritor Versátil</h5>
           <ul>
-            <li>Ingeniero en desarrollo de software</li>
-            <li>DJ/Productor</li>
-            <li>Unity GameDev</li>
-            <li>Escritor por hobbie</li>
-            <li>Mentor en Algorithmics</li>
+            <li>Narrativa experimental</li>
+            <li>Relatos cortos</li>
+            <li>Prosa poética</li>
+            <li>Historias difíciles de categorizar</li>
           </ul>
+        </div>
+        
+        <!-- Estadísticas de escritura -->
+        <div class="mt-4 p-3 bg-light" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <h5>Mi Producción Literaria</h5>
+          <div class="writing-stats">
+            <div class="stat-item">
+              <div class="stat-number">25+</div>
+              <div class="stat-label">Historias</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">3</div>
+              <div class="stat-label">Años escribiendo</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Géneros -->
+        <div class="mt-4 p-3 bg-light" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <h5>Géneros que exploro</h5>
+          <div class="d-flex flex-wrap mt-3">
+            <span class="genre-tag">Realismo mágico</span>
+            <span class="genre-tag">Ficción especulativa</span>
+            <span class="genre-tag">Micro-relatos</span>
+            <span class="genre-tag">Narrativa experimental</span>
+          </div>
         </div>
       </aside>
 
       <!-- CONTENIDO CENTRAL -->
-      <main class="col-md-6 text-center">
-        <!-- SOBRE MÍ -->
-        <section class="mb-4">          
-          <p>Escribo lo que me nace. Y aquí pongo esas historias que son difíciles de catalogar.</p>
+      <main class="col-md-6">
+        <section class="mb-5">
+          <h2 class="section-title">Mis Otras Historias</h2>
+          <p class="text-center">Aquí encontrarás esas historias que nacen de la inspiración del momento, sin una categoría definida pero con mucha esencia.</p>
+          
+          <!-- Cita inspiradora -->
+          <div class="quote-section">
+            <p>"Escribo lo que me nace. Sin ataduras a géneros o expectativas. Solo historias que merecen ser contadas."</p>
+          </div>
+          
+          <!-- Historias destacadas -->
+          <div class="story-section">
+            <h3 class="category-title">Historias Destacadas</h3>
+            <div class="row">
+              <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                  <div class="story-banner">
+                    <i class="fas fa-feather-alt"></i>
+                  </div>
+                  <div class="card-body">
+                    <span class="story-category">Aventura / Superación</span>
+                    <h5 class="card-title">El Héroe de las dos espadas</h5>
+                    <p class="card-text story-description">La historia de un hombre que al fallar, lo pierde todo. Y solo una chica pura será capaz de sacarlo de ese abismo de soledad y depresión.</p>
+                    <div class="mb-2">
+                      <span class="genre-tag">Ficción</span>
+                      <span class="genre-tag">Corto</span>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm">Leer historia</a>
+                  </div>
+                </div>
+              </div>                            
+            </div>                        
+          </div>
         </section>
+        
+        <!-- Sección de proceso creativo -->
+        <section class="mb-5">
+          <h2 class="section-title">Mi Proceso Creativo</h2>
+          <div class="row text-center">
+            <div class="col-md-4 mb-3">
+              <div class="p-3 bg-light rounded">
+                <i class="fas fa-lightbulb fa-2x mb-2 text-warning"></i>
+                <h5>Inspiración</h5>
+                <p>Ideas que surgen de experiencias cotidianas, sueños o simples momentos de reflexión</p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="p-3 bg-light rounded">
+                <i class="fas fa-pen-fancy fa-2x mb-2 text-primary"></i>
+                <h5>Escritura Libre</h5>
+                <p>Dejo que las palabras fluyan sin preocuparme inicialmente por géneros o estructuras</p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="p-3 bg-light rounded">
+                <i class="fas fa-check-circle fa-2x mb-2 text-success"></i>
+                <h5>Pulido</h5>
+                <p>Revisión y refinamiento para mantener la esencia mientras mejoro la narrativa</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      
       <!-- ASIDE DERECHO -->
       <aside class="col-md-3">
         <div class="bg-light p-3" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
@@ -121,15 +308,44 @@
             <li><i class="fas fa-c"></i> C / C#</li>
           </ul>
         </div>
+        
+        <!-- Proyectos de escritura -->
+        <div class="mt-4 p-3 bg-dark text-white" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <h5>Proyectos en Desarrollo</h5>
+          <div class="mt-3">
+            <div class="d-flex align-items-center mb-3">
+              <i class="fas fa-book text-info me-2"></i>
+              <div>
+                <h6 class="mb-0">"El Héroe de las dos espadas."</h6>
+                <small>Novela en progreso</small>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="fas fa-scroll text-warning me-2"></i>
+              <div>
+                <h6 class="mb-0">Colección de Microrrelatos</h6>
+                <small>En edición</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contacto -->
+        <div class="mt-4 p-3 bg-light" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <h5>¿Interesado en colaborar?</h5>
+          <p>Si tienes ideas para proyectos narrativos, hablemos.</p>
+          <a href="mailto:roberto.arteaga25@hotmail.com" class="btn btn-outline-primary btn-sm">Contactar</a>
+        </div>
       </aside>
     </div>
   </div>
 <hr>
+
   <!-- FOOTER -->
   <br>
   <footer class="mt-5 fixed-bottom bg-dark text-white" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;height: 8%;">
     <p>© 2025 Roberto Arteaga. Todos los derechos reservados.</p>
-    <p>Escríbeme a: <a href="mailto:roberto.arteaga25@hotmail.com">roberto.arteaga25@hotmail.com</a></p>
+    <p>Escríbeme a: <a href="mailto:roberto.arteaga25@hotmail.com" class="text-white">roberto.arteaga25@hotmail.com</a></p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
