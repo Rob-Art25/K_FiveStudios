@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Platform Games - Roberto Arteaga's Site</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 0 5px 2px silver;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+    .dropdown-item {
+      border: ridge 2px white;
+      border-radius: 20px;
+      box-shadow: 0 0 2.5px 2.5px rgb(214, 214, 214);
+    }
+    footer {
+      border-top: 2px groove silver;
+      box-shadow: 0 -2px 5px silver;
+      background-color: #f8f9fa;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .game-banner {
+      height: 180px;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+    }
+    .game-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .game-banner i {
+      font-size: 4rem;
+      color: white;
+    }
+    .game-category {
+      font-size: 0.85rem;
+      color: #6c757d;
+    }
+    .game-description {
+      height: 80px;
+      overflow: hidden;
+    }
+    .section-title {
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      border-radius: 3px;
+    }
+    .platform-tag {
+      display: inline-block;
+      padding: 3px 8px;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-right: 5px;
+      border: 1px solid #dee2e6;
+    }
+    .progress {
+      height: 8px;
+      margin-bottom: 10px;
+    }
+    .dev-status {
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    .progress-container {
+      margin: 15px 0;
+    }
+    @media (max-width: 768px) {
+      .game-banner {
+        height: 150px;
+      }
+      .game-banner i {
+        font-size: 3rem;
+      }
+    }
+    .game-section {
+      margin-bottom: 40px;
+    }
+    .category-title {
+      border-left: 5px solid #6a11cb;
+      padding-left: 15px;
+      margin-bottom: 20px;
+      color: #343a40;
+    }
+    .tech-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    .screenshot-gallery {
+      display: flex;
+      gap: 10px;
+      margin: 15px 0;
+      overflow-x: auto;
+      padding: 5px;
+    }
+    .screenshot-item {
+      flex: 0 0 auto;
+      width: 150px;
+      height: 100px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid #dee2e6;
+      cursor: pointer;
+    }
+    .screenshot-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .screenshot-placeholder {
+      background: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6c757d;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body sticky-top" data-bs-theme="dark" style="border: groove 2px silver; border-radius: 20px; box-shadow: 0 0 5px 5px silver;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">K'Five</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="music.html">Music</a></li>
+          <li class="nav-item"><a class="nav-link" href="stories.html">Stories</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Music Styles</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="trance.html">Trance</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="latin.html">Latin</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="other.html">Other</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Game Styles</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item active" href="platformers.html">Platformers</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="horror.html">Horror</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="otherGames.html">Other</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">My Stories</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="loveStories.html">Love Stories</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="horrorStories.html">Horror</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="otherStories.html">Other</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <div class="text-center mt-3">
+    <marquee><h1>Juegos de Plataformas</h1></marquee>
+  </div>
+
+  <!-- CUERPO PRINCIPAL -->
+  <div class="container mt-4">
+    <div class="row">
+
+      <!-- ASIDE IZQUIERDO -->
+      <aside class="col-md-3">
+        <div class="bg-dark text-white p-3" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <marquee behavior="scroll" direction="left"><h4>Roberto Carlos López Arteaga</h4></marquee>
+          <h5>Especialista en Plataformas</h5>
+          <ul>
+            <li>Desarrollo de mecánicas de movimiento precisas</li>
+            <li>Diseño de niveles desafiantes</li>
+            <li>Implementación de sistemas de físicas</li>
+            <li>Optimización para diferentes dispositivos</li>
+          </ul>
+        </div>
+        
+        <!-- Tecnologías -->
+        <div class="mt-4 p-3 bg-light" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <h5>Tecnologías Usadas</h5>
+          <div class="d-flex flex-wrap mt-3">
+            <span class="tech-badge">Unity 2D</span>
+            <span class="tech-badge">C#</span>
+            <span class="tech-badge">RPG Maker</span>
+            <span class="tech-badge">Tilemaps</span>
+            <span class="tech-badge">IA Generativa</span>
+          </div>
+        </div>
+        
+        <!-- Progreso general -->
+        <div class="mt-4 p-3 bg-light" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <h5>Progreso de Proyectos</h5>
+          <div class="progress-container">
+            <div class="d-flex justify-content-between">
+              <span class="dev-status">New World</span>
+              <span class="dev-status">65%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress-container">
+            <div class="d-flex justify-content-between">
+              <span class="dev-status">Super Purple Ball</span>
+              <span class="dev-status">100%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress-container">
+            <div class="d-flex justify-content-between">
+              <span class="dev-status">Proyecto Peach</span>
+              <span class="dev-status">35%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CONTENIDO CENTRAL -->
+      <main class="col-md-6">
+        <section class="mb-5">
+          <h2 class="section-title">Mis Juegos de Plataformas</h2>
+          <p class="text-center">Explora mis proyectos de juegos de plataformas, desde aventuras épicas hasta desafíos clásicos con un toque personal.</p>
+          
+          <!-- New World -->
+          <div class="game-section">
+            <h3 class="category-title">New World</h3>
+            <div class="row">
+              <div class="col-lg-12 mb-4">
+                <div class="card h-100">
+                  <div class="game-banner">
+                    <img src="Images/New World Icon.png" style="max-width: 20%"></i>
+                  </div>
+                  <div class="card-body">
+                    <span class="game-category">Aventura / Plataformas 2D / RPG</span>
+                    <h5 class="card-title">New World</h5>
+                    <p class="card-text game-description">Un juego de plataformas con sprites de RPG Maker y tiles generados por IA. Explora un mundo misterioso con habilidades únicas y descubre secretos ocultos.</p>
+                    <div class="mb-2">
+                      <span class="platform-tag">PC</span>
+                      <span class="platform-tag">Windows</span>
+                    </div>
+                    
+                    <!-- Galería de capturas -->
+                    <div class="screenshot-gallery">
+                      <div class="screenshot-placeholder">
+                        <img src="Images/New World Pic 1.png" style="max-width: 480px;">
+                      </div>
+                      <div class="screenshot-placeholder">
+                        <img src="Images/New World Pic 2.png" style="max-width: 480px;">
+                      </div>
+                      <div class="screenshot-placeholder">
+                        <img src="Images/New World 3.png" style="max-width: 480px;">
+                      </div>
+		      <div class="screenshot-placeholder">
+                        <img src="Images/New World Pic 4.png" style="max-width: 480px;">
+                      </div>
+                    </div>
+                    
+                    <div class="progress-container">
+                      <div class="d-flex justify-content-between">
+                        <span class="dev-status">Estado de desarrollo:</span>
+                        <span class="dev-status">65% completo</span>
+                      </div>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="mt-3">
+                      <h6>Tecnologías utilizadas:</h6>
+                      <div class="d-flex flex-wrap">
+                        <span class="tech-badge">Unity</span>
+                        <span class="tech-badge">RPG Maker Sprites</span>
+                        <span class="tech-badge">IA Generativa</span>
+                        <span class="tech-badge">C#</span>
+                      </div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm mt-3">Ver detalles del proyecto</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Super Purple Ball -->
+          <div class="game-section">
+            <h3 class="category-title">Super Purple Ball</h3>
+            <div class="row">
+              <div class="col-lg-12 mb-4">
+                <div class="card h-100">
+                  <div class="game-banner">
+                    <img src="Images/SPB_Icon.png"class="fas fa-basketball" style="max-width: 32%;">
+                  </div>
+                  <div class="card-body">
+                    <span class="game-category">Plataformas / Móvil</span>
+                    <h5 class="card-title">Super Purple Ball</h5>
+                    <p class="card-text game-description">Un juego de plataformas para Android donde controlas una pelota púrpura que debe superar obstáculos y llegar a la meta. Controles simples pero desafiantes.</p>
+                    <div class="mb-2">
+                      <span class="platform-tag">Android</span>
+                      <span class="platform-tag">APK</span>
+                    </div>
+                    
+                    <!-- Galería de capturas -->
+                    <div class="screenshot-gallery">
+                      <div class="screenshot-placeholder">
+                        <img src="Images/SPB Start.png" style="max-width: 480px;">
+                      </div>
+                      <div class="screenshot-placeholder">
+                        <img src="Images/SPB Lv1.png" style="max-width: 480px;">
+                      </div>
+		      <div class="screenshot-placeholder">
+                        <img src="Images/SPB Lv4.png" style="max-width: 480px;">
+                      </div>
+		      <div class="screenshot-placeholder">
+                        <img src="Images/SPB Lv7.png" style="max-width: 480px;">
+                      </div>
+		      <div class="screenshot-placeholder">
+                          <img src="Images/SPB Lv10.png" style="max-width: 480px;">
+                      </div>
+		      <div class="screenshot-placeholder">
+                        <img src="Images/SPB Final World.png" style="max-width: 480px;">
+                      </div>
+                    </div>
+                    
+                    <div class="progress-container">
+                      <div class="d-flex justify-content-between">
+                        <span class="dev-status">Estado:</span>
+                        <span class="dev-status">Completado (no publicado)</span>
+                      </div>
+                      <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="mt-3">
+                      <h6>Tecnologías utilizadas:</h6>
+                      <div class="d-flex flex-wrap">
+                        <span class="tech-badge">Unity</span>
+                        <span class="tech-badge">C#</span>
+                        <span class="tech-badge">Touch Controls</span>
+                      </div>
+                    </div>
+                    <a href="#" class="btn btn-success btn-sm mt-3">Solicitar APK</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Proyecto Peach -->
+          <div class="game-section">
+            <h3 class="category-title">Super Princess Peach (En desarrollo)</h3>
+            <div class="row">
+              <div class="col-lg-12 mb-4">
+                <div class="card h-100">
+                  <div class="game-banner">
+                    <img src="Images/Peach Crown.png" class="fas fa-crown" style="max-width: 32%;">
+                  </div>
+                  <div class="card-body">
+                    <span class="game-category">Plataformas Clásicas / Fan Game</span>
+                    <h5 class="card-title">Proyecto Peach</h5>
+                    <p class="card-text game-description">Un juego de plataformas al estilo clásico de Super Mario Bros pero con Princess Peach como protagonista. Utiliza tilesets clásicos con mecánicas renovadas.</p>
+                    <div class="mb-2">
+                      <span class="platform-tag">PC</span>
+                      <span class="platform-tag">Web</span>
+                    </div>
+                    
+                    <!-- Galería de capturas -->
+                    <div class="screenshot-gallery">
+                      <div class="screenshot-placeholder">
+                        <img src="Images/SPPeach Screen Shot.png" style="max-width: 100%;">
+                      </div>
+                    </div>
+                    
+                    <div class="progress-container">
+                      <div class="d-flex justify-content-between">
+                        <span class="dev-status">Estado de desarrollo:</span>
+                        <span class="dev-status">35% completo</span>
+                      </div>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="mt-3">
+                      <h6>Tecnologías utilizadas:</h6>
+                      <div class="d-flex flex-wrap">
+                        <span class="tech-badge">Unity</span>
+                        <span class="tech-badge">Sprites Clásicos</span>
+                        <span class="tech-badge">C#</span>
+                        <span class="tech-badge">Tilemaps</span>
+                      </div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm mt-3">Seguir desarrollo</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Sección de características -->
+        <section class="mb-5">
+          <h2 class="section-title">Características de mis Plataformas</h2>
+          <div class="row text-center">
+            <div class="col-md-4 mb-3">
+              <div class="p-3 bg-light rounded">
+                <i class="fas fa-running fa-2x mb-2 text-primary"></i>
+                <h5>Controles Precisos</h5>
+                <p>Mecánicas de movimiento pulidas y responsivas</p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="p-3 bg-light rounded">
+                <i class="fas fa-puzzle-piece fa-2x mb-2 text-success"></i>
+                <h5>Diseño de Niveles</h5>
+                <p>Desafíos bien equilibrados con secretos por descubrir</p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="p-3 bg-light rounded">
+                <i class="fas fa-magic fa-2x mb-2 text-info"></i>
+                <h5>Elementos Únicos</h5>
+                <p>Mecánicas innovadoras que diferencian cada proyecto</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      
+      <!-- ASIDE DERECHO -->
+      <aside class="col-md-3">
+        <div class="bg-light p-3" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <marquee behavior="scroll" direction="right"><h4>Logros en Plataformas</h4></marquee>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="fas fa-code text-success me-2"></i> <strong>3</strong> proyectos completados</li>
+            <li class="mb-2"><i class="fas fa-star text-warning me-2"></i> <strong>4.5/5</strong> rating en pruebas</li>
+            <li class="mb-2"><i class="fas fa-code-branch text-primary me-2"></i> <strong>3</strong> proyectos activos</li>
+            <li class="mb-2"><i class="fas fa-clock text-info me-2"></i> <strong>2+</strong> años desarrollando plataformas</li>
+          </ul>
+        </div>
+        
+        <!-- Próximos lanzamientos -->
+        <div class="mt-4 p-3 bg-dark text-white" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <h5>Próximos Lanzamientos</h5>
+          <div class="mt-3">
+            <div class="d-flex align-items-center mb-3">
+              <i class="fas fa-hourglass-half text-info me-2"></i>
+              <div>
+                <h6 class="mb-0">New World</h6>
+                <small>Estimado: Finales 2025</small>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="fas fa-hourglass-start text-warning me-2"></i>
+              <div>
+                <h6 class="mb-0">Proyecto Peach</h6>
+                <small>Estimado: Mediados 2026</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contacto -->
+        <div class="mt-4 p-3 bg-light" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;">
+          <h5>¿Interesado en colaborar?</h5>
+          <p>Si te especializas en arte digital o diseño de niveles, hablemos.</p>
+          <a href="mailto:roberto.arteaga25@hotmail.com" class="btn btn-outline-primary btn-sm">Contactar</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+<hr>
+
+  <!-- FOOTER -->
+  <br>
+  <footer class="mt-5 fixed-bottom bg-dark text-white" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;height: 8%;">
+    <p>© 2025 Roberto Arteaga. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
