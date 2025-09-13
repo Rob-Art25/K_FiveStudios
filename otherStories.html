@@ -409,21 +409,7 @@
 <hr>
 
   <!-- Sección de Comentarios -->
-<div class="comment-system">
-    <h3>Deja tu comentario</h3>
-    <div class="comment-form">
-        <input type="text" id="commentName" placeholder="Tu nombre">
-        <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
-        <button class="comment-btn" onclick="addComment()">Publicar Comentario</button>
-    </div>
-
-    <div class="comments-section">
-        <h4>Comentarios Recientes</h4>
-        <div id="commentsContainer">
-            <div class="no-comments">No hay comentarios aún. ¡Sé el primero en comentar!</div>
-        </div>
-    </div>
-</div>
+<div id="utterances-comments" class="mt-5"></div>
   <!-- FOOTER -->
   <br>
   <footer class="mt-5 fixed-bottom bg-dark text-white" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;height: 8%;">
@@ -432,72 +418,6 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-// Sistema de comentarios simple
-function addComment() {
-    const name = document.getElementById('commentName').value;
-    const text = document.getElementById('commentText').value;
-    
-    if (!name || !text) {
-        alert('Por favor, completa ambos campos');
-        return;
-    }
-    
-    const comment = {
-        name: name,
-        text: text,
-        date: new Date().toLocaleString('es-ES')
-    };
-    
-    saveComment(comment);
-    displayComment(comment);
-    
-    // Limpiar formulario
-    document.getElementById('commentName').value = '';
-    document.getElementById('commentText').value = '';
-}
-
-function saveComment(comment) {
-    let comments = JSON.parse(localStorage.getItem('pageComments')) || [];
-    comments.push(comment);
-    localStorage.setItem('pageComments', JSON.stringify(comments));
-}
-
-function displayComment(comment) {
-    const container = document.getElementById('commentsContainer');
-    
-    // Remover mensaje de no comentarios
-    if (container.querySelector('.no-comments')) {
-        container.innerHTML = '';
-    }
-    
-    const commentDiv = document.createElement('div');
-    commentDiv.className = 'comment';
-    commentDiv.innerHTML = `
-        <div class="comment-header">
-            <span>${comment.name}</span>
-            <span class="comment-date">${comment.date}</span>
-        </div>
-        <p>${comment.text}</p>
-    `;
-    
-    container.appendChild(commentDiv);
-}
-
-// Cargar comentarios existentes
-function loadComments() {
-    const comments = JSON.parse(localStorage.getItem('pageComments')) || [];
-    const container = document.getElementById('commentsContainer');
-    
-    if (comments.length === 0) return;
-    
-    container.innerHTML = '';
-    comments.forEach(displayComment);
-}
-
-// Cargar comentarios cuando la página se carga
-window.addEventListener('DOMContentLoaded', loadComments);
-</script>
 <script src="https://utteranc.es/client.js"
         repo="Rob-Art25/K_FiveStudios"
         issue-term="pathname"
