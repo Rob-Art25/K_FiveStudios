@@ -409,9 +409,13 @@
 <hr>
 
   <!-- Sección de Comentarios -->
-<div id="utterances-comments" class="mt-5"></div>
-<p>Para publicar un comentario, inicia sesión en <a href="https://github.com/login" target="_blank">GitHub</a> y recarga la página.</p>
-
+<!-- Sección de comentarios con Giscus -->
+<section class="mt-5">
+  <h3>Deja tu comentario</h3>
+  <div id="giscus-comments"></div>
+  <p>Para publicar un comentario, inicia sesión en <a href="https://github.com/login" target="_blank">GitHub</a> si no estás loggeado.</p>
+</section>
+  
   <!-- FOOTER -->
   <br>
   <footer class="mt-5 fixed-bottom bg-dark text-white" style="border: ridge 2.5px silver; border-radius: 12px; box-shadow: 0 0 5px 5px silver;height: 8%;">
@@ -420,11 +424,15 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://utteranc.es/client.js"
-        repo="rob-art25/K_FiveStudios"
-        issue-term="pathname"
-        label="💬 comentario"
-        theme="github-light"
+<script src="https://giscus.app/client.js"
+        data-repo="rob-art25/K_FiveStudios"
+        data-repo-id="REPO_ID_AQUI"
+        data-category="General"
+        data-category-id="CATEGORY_ID_AQUI"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
         crossorigin="anonymous"
         async>
 </script>
